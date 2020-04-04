@@ -1,8 +1,8 @@
 package com.pattern.merge.intervals;
 
 public class Interval {
-	int start;
-	int end;
+	public int start;
+	public int end;
 	
 	public Interval(int start, int end){
 		this.start = start;

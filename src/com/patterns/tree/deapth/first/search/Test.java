@@ -1,14 +1,37 @@
 package com.patterns.tree.deapth.first.search;
 
-import java.util.LinkedList;
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.util.ArrayDeque;
 
 public class Test {
 
+	public int[] maxSlidingWindow(int[] a, int k) {
+		 if (a == null || k <= 0) return new int[0];		 
+		 int[] res = new int[a.length - k + 1];
+		 ArrayDeque<Integer> deque = new ArrayDeque<Integer>(); 
+		 
+		 int index  = 0;
+		 for (int i = 0; i < a.length; i++) { 
+			 while (!deque.isEmpty() && deque.peek() < i - k + 1) // Ensure deque's size doesn't exceed k
+				 deque.poll();
+			 
+			// Remove numbers smaller than a[i] from right(a[i-1]) to left, to make the first number in the deque the largest one in the window		 
+			 while (!deque.isEmpty() && a[deque.peekLast()] < a[i]) 
+				 deque.pollLast();
+			 
+			 deque.offer(i);// Offer the current index to the deque's tail
+			 
+			 if (i >= k - 1)// Starts recording when i is big enough to make the window has k elements 
+				 res[index++] = a[deque.peek()];
+		 }		 
+		 return res;
+	 }
+	
 	public static void main(String[] args) {
-		PriorityQueue<String> queue = new 
-		        PriorityQueue<String>(new The_Comparator()); 
+		Test test = new Test();
+		int[] arr = test.maxSlidingWindow(new int[] {1,3,-1,-3,5,3,6,7}, 3);
+		for(int i=0; i<arr.length; i++) {
+			System.out.println(arr[i]);
+		}
 	}
 
 }
