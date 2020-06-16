@@ -1,6 +1,5 @@
 package com.patterns.tree.deapth.first.search;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.patterns.tree.breadth.first.search.TreeNode;
@@ -81,6 +80,7 @@ public class TreeDiameter {
 		root.left.left = new TreeNode(4);
 		root.right.left = new TreeNode(5);
 		root.right.right = new TreeNode(6);
+		System.out.println("Tree Diameter: " + TreeDiameter.findDiameterDoc(root));
 //		System.out.println("Tree Diameter: " + TreeDiameter.findDiameter(root, 1, new ArrayList<Integer>()));
 
 		root.left.left = null;

@@ -18,28 +18,34 @@ public class SumOfPathNumbers {
 		}
 		
 		levelWiseSum = levelWiseSum + root.val;		
-
+		System.out.println(levelWiseSum);
 		findSumOfPathNumbers(root.left);
 		findSumOfPathNumbers(root.right);
 		
 		levelWiseSum = levelWiseSum.substring(0, levelWiseSum.length()-1);
-		
+		System.out.println(sum);
 		return sum;
 	}
 
 	public static void main(String[] args) {
-		TreeNode root = new TreeNode(1);
+//		TreeNode root = new TreeNode(1);
 //		root.left = new TreeNode(0);
 //		root.right = new TreeNode(1);
 //		root.left.left = new TreeNode(1);
 //		root.right.left = new TreeNode(6);
 //		root.right.right = new TreeNode(5);
 		
-		root.left = new TreeNode(7);
-		root.right = new TreeNode(9);
-		root.right.left = new TreeNode(2);
-		root.right.right = new TreeNode(9);
+//		root.left = new TreeNode(7);
+//		root.right = new TreeNode(9);
+//		root.right.left = new TreeNode(2);
+//		root.right.right = new TreeNode(9);
 
+		TreeNode root = new TreeNode(12);
+		root.left = new TreeNode(7);
+		root.right = new TreeNode(1);
+		root.left.left = new TreeNode(4);
+		root.right.left = new TreeNode(10);
+		root.right.right = new TreeNode(5);
 		
 		System.out.println("Total Sum of Path Numbers: " + SumOfPathNumbers.findSumOfPathNumbers(root));
 	}
