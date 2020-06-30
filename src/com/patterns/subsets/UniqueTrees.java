@@ -7,7 +7,12 @@ import com.patterns.tree.breadth.first.search.TreeNode;
 
 public class UniqueTrees {
 
-	public static List<TreeNode> findUniqueTrees(int n) {
+	public List<TreeNode> findUniqueTrees(int n) {
+		if(n==1) {
+			List<TreeNode> treeList = new ArrayList<TreeNode>();
+			treeList.add(new TreeNode(n));
+			return treeList;
+		}
 		List<Integer> list = new ArrayList<Integer>();
 		for(int i=1; i<=n; i++) {
 			list.add(i);
@@ -15,7 +20,7 @@ public class UniqueTrees {
 		return makeTree(list);
 	}
 
-	public static List<TreeNode> makeTree(List<Integer> list){
+	public List<TreeNode> makeTree(List<Integer> list){
 		List<TreeNode> result = new ArrayList<>();
 		for(int i=0; i<list.size(); i++) {
 			if(list.size()==2) {
@@ -48,7 +53,7 @@ public class UniqueTrees {
 		}
 		return result;
 	}
-	
+
 	public static TreeNode getTree(int val1, int val2) {
 		TreeNode treeNode = new TreeNode(val1);
 
@@ -60,16 +65,18 @@ public class UniqueTrees {
 		return treeNode;
 	}
 
+
 	public static void main(String[] args) {
-		List<TreeNode> result = UniqueTrees.findUniqueTrees(3);
+		UniqueTrees trees = new UniqueTrees();
+		List<TreeNode> result = trees.findUniqueTrees(3);
 		System.out.print("Total trees: " + result.size());
 		System.out.println("");
-		
+
 		int i=1;
 		for(TreeNode treeNode : result) {
 			System.out.println("Tree "+ i++);
 			System.out.println("Value " +treeNode.val);
-			
+
 			while(treeNode!=null) {
 				if(treeNode.left!=null) {
 					System.out.println("Left Value "+ treeNode.left.val);
