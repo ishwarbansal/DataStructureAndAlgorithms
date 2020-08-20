@@ -71,7 +71,7 @@ public class CharacterReplacement {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(findLength2("aaaaabccbb", 2));
+		System.out.println(findLength2("aabcdbb", 2));
 //		System.out.println(findLength2("abbcb", 1));
 //		System.out.println(findLength2("abccde", 1));
 //		System.out.println(findLength2("abbaaabbabb", 2));

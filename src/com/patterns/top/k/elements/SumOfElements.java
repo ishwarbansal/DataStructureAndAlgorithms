@@ -2,8 +2,6 @@ package com.patterns.top.k.elements;
 
 import java.util.PriorityQueue;
 
-import com.patterns.tree.breadth.first.search.TreeNode;
-
 public class SumOfElements {
 
 

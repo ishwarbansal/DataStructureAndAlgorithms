@@ -3,7 +3,7 @@ package com.tree.construction;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.patterns.tree.breadth.first.search.TreeNode;
+import com.patterns.sliding.window.TreeNode;
 
 public class PostInOrder {
 

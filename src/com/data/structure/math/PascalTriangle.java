@@ -1,4 +1,4 @@
-package com.leetcode.challenge.may2020.week2;
+package com.data.structure.math;
 
 import java.util.ArrayList;
 import java.util.List;

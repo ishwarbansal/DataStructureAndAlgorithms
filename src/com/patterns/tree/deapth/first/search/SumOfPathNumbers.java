@@ -1,6 +1,6 @@
 package com.patterns.tree.deapth.first.search;
 
-import com.patterns.tree.breadth.first.search.TreeNode;
+import com.patterns.sliding.window.TreeNode;
 
 public class SumOfPathNumbers {
 
