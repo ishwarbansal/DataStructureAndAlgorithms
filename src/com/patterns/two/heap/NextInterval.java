@@ -2,7 +2,7 @@ package com.patterns.two.heap;
 
 import java.util.PriorityQueue;
 
-import com.patterns.merge.intervals.Interval;
+import com.patterns.graph.Interval;
 
 public class NextInterval {
 

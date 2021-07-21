@@ -9,5 +9,15 @@ public class ListNode {
 		this.value = value;
 	}
 
+	public ListNode getNext() {
+		return next;
+	}
+
+	public void setNext(ListNode next) {
+		this.next = next;
+	}
+	
+	
+
 
 }

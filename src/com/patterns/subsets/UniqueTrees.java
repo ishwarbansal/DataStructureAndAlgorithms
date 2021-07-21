@@ -3,7 +3,7 @@ package com.patterns.subsets;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.patterns.sliding.window.TreeNode;
+import com.patterns.tree.breadth.first.search.TreeNode;
 
 public class UniqueTrees {
 

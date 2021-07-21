@@ -75,7 +75,7 @@ public class MaximumPalindromicSubsequence {
 	}
 	
 	public static void main(String[] args) {
-		String st1= "agbcba";
+		String st1= "babad";
 		StringBuilder st2 = new StringBuilder();
 		char[] ch = st1.toCharArray();
 		for(int i= ch.length-1; i>=0; i--) {
@@ -85,7 +85,7 @@ public class MaximumPalindromicSubsequence {
 
 		MaximumPalindromicSubsequence longestCommonSubSequence = new MaximumPalindromicSubsequence(st1.length(), st2.length());
 		
-		System.out.println("getLongestCommonSubSequenceUsingRecurssion " + longestCommonSubSequence.getLongestCommonSubSequenceUsingRecurssion(st1, st2.toString(), st1.length(), st2.length()));
+//		System.out.println("getLongestCommonSubSequenceUsingRecurssion " + longestCommonSubSequence.getLongestCommonSubSequenceUsingRecurssion(st1, st2.toString(), st1.length(), st2.length()));
 		
 		System.out.println("getLongestCommonSubSequenceUsingBottomUp " + longestCommonSubSequence.getLongestCommonSubSequenceUsingBottomUp(st1, st2.toString(), st1.length(), st2.length()));
 		

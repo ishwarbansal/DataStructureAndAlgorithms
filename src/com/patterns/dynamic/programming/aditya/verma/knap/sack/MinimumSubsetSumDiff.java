@@ -2,7 +2,7 @@ package com.patterns.dynamic.programming.aditya.verma.knap.sack;
 
 public class MinimumSubsetSumDiff {
 
-	public boolean[][] b = null;
+	
 	public boolean getMinimumSubsetSumDiffUsingRecurssion(int[] arr, int sum, int n) {
 		if(sum==0)
 			return true;
@@ -39,14 +39,16 @@ public class MinimumSubsetSumDiff {
 		}
 		System.out.println("");
 	}
-
+	
+	public boolean[][] b = null;
+	
 	public int lastStoneWeightII(int[] stones) {
 		int sum = 0;
 		for(int val : stones)
 			sum+=val;		
-
+	
 		getMinimumSubsetSumDiffUsingDP(stones, sum, stones.length);
-
+	
 		int minSubsetSumDiff = Integer.MAX_VALUE;
 		int max = sum/2;
 		for(int j=0; j<=max; j++) {
@@ -66,7 +68,7 @@ public class MinimumSubsetSumDiff {
 					b[i][j] = false;
 			}
 		}
-
+	
 		for(int i=1; i<=n; i++) {
 			for(int j=1; j<=sum; j++) {
 				if(arr[i-1]<=j) {
@@ -75,7 +77,7 @@ public class MinimumSubsetSumDiff {
 					b[i][j]= b[i-1][j];
 			}
 		}		
-
+	
 		return b[n][sum];
 	}
 

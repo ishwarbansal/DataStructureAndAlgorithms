@@ -18,13 +18,6 @@ public class EqualSubsetSum {
 
 	private void printSelectedElements(boolean bp[][], int[] arr, int sum){
 		System.out.println("-----------");
-		//		
-		//		for(int i=0; i<bp.length; i++) {
-		//			for(int j=0; j<bp[i].length; j++) {
-		//				System.out.print(bp[i][j] + "  ");
-		//			}
-		//			System.out.println("");
-		//		}
 
 		System.out.print("Selected sums:");
 
@@ -84,7 +77,6 @@ public class EqualSubsetSum {
 					b[i][j]= b[i-1][j];
 			}
 		}		
-		printSelectedElements(b, arr, sum);
 		return b[n][sum];
 	}
 

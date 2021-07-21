@@ -2,11 +2,29 @@ package com.data.structure.backtracking;
 
 public class NQueen {
 
+/*	51. N-Queens
+	Hard
+	The n-queens puzzle is the problem of placing n queens on an n x n chessboard such that no two queens attack each other.
+	Given an integer n, return all distinct solutions to the n-queens puzzle.
+	Each solution contains a distinct board configuration of the n-queens' placement, where 'Q' and '.' both indicate a queen and an empty space, respectively.
+
+	Example 1:
+	Input: n = 4
+	Output: [[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
+	Explanation: There exist two distinct solutions to the 4-queens puzzle as shown above
+
+	Example 2:
+	Input: n = 1
+	Output: [["Q"]]
+
+	Constraints:
+	1 <= n <= 9
+	
+	Below solution is for one probability not for all probability.
+*/
 
 	public boolean makeNQueen(int[][] chess, int row) {
 		if(row==chess.length-1) {
-			System.out.println("N Queen Done");
-			printMatrix(chess);
 			return true;
 		}
 
@@ -38,18 +56,6 @@ public class NQueen {
 		}
 
 		return true;
-	}
-
-	public void printMatrix(int[][] chess) {
-		for (int row = 0; row < chess.length; row++)
-		{
-			for (int col = 0; col < chess[row].length; col++)
-			{
-				System.out.print(chess[row][col] + "  ");
-			}
-			System.out.println("");
-		}
-
 	}
 
 	public static void main(String[] args) {

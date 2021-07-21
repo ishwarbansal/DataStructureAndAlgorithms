@@ -70,7 +70,7 @@ public class PalindromePartioning {
 	}
 	
 	public static void main(String[] args) {
-		String s = "abcnitin";
+		String s = "babad";
 		PalindromePartioning palindromePartioning = new PalindromePartioning(s.length());
 		System.out.println("getMinimumPalindromePartioningUsingRecurssion  "+ palindromePartioning.getMinimumPalindromePartioningUsingRecurssion(s, 0, s.length()-1));
 		System.out.println("getMinimumPalindromePartioningUsingDP  "+ palindromePartioning.getMinimumPalindromePartioningUsingDP(s, 0, s.length()-1));

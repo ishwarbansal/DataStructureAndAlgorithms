@@ -1,27 +1,33 @@
 package com.patterns.dynamic.programming.aditya.verma.knap.sack;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CountOfSubsetSum {
 
-	int[][] b;
-
-	public CountOfSubsetSum(int n, int w) {
-		b = new int[n][w];
-	}
-
-	public int getCountSubsetSumUsingRecurssion(int[] arr, int sum, int n) {
-		if(sum==0)
+	List<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
+	public int getCountSubsetSumUsingRecurssion(int[] arr, int sum, int n, List<Integer> list) {
+		if(sum==0) {
+			result.add(new ArrayList<>(list));
 			return 1;
+		}
 		if(n==0)
 			return 0;
 
 		if(arr[n-1]<=sum) {
-			return getCountSubsetSumUsingRecurssion(arr, sum-arr[n-1], n-1) + getCountSubsetSumUsingRecurssion(arr, sum, n-1);
+			List<Integer> list2 = new ArrayList<Integer>(list);
+			list.add(arr[n-1]);
+			int count = getCountSubsetSumUsingRecurssion(arr, sum-arr[n-1], n-1, list) + getCountSubsetSumUsingRecurssion(arr, sum, n-1, list2);
+			list.remove(list.size()-1);
+			return count;
 		}else {
-			return getCountSubsetSumUsingRecurssion(arr, sum, n-1);
+			return getCountSubsetSumUsingRecurssion(arr, sum, n-1, list);
 		}
 	}
 
 	public int getCountSubsetSumUsingDP(int[] arr, int sum, int n) {
+		int[][] b = new int[arr.length+1][sum+1];
+		
 		for(int i=0; i<=n; i++) {
 			for(int j=0; j<=sum; j++) {
 				if(j==0)
@@ -39,13 +45,11 @@ public class CountOfSubsetSum {
 					b[i][j]= b[i-1][j];
 			}
 		}		
-		printSelectedElements(b, arr, sum);
+//		printSelectedElements(b, arr, sum);
 		return b[n][sum];
 	}
 
 	private void printSelectedElements(int bp[][], int[] arr, int sum){
-		System.out.println("-----------");
-
 		for(int i=0; i<bp.length; i++) {
 			for(int j=0; j<bp[i].length; j++) {
 				System.out.print(bp[i][j] + "  ");
@@ -91,8 +95,15 @@ public class CountOfSubsetSum {
 
 		int sum = 10;
 
-		CountOfSubsetSum testDP = new CountOfSubsetSum(arr.length+1, sum+1);
-		System.out.println("getCountSubsetSumUsingRecurssion  "+ testDP.getCountSubsetSumUsingRecurssion(arr, sum, arr.length));
+		CountOfSubsetSum testDP = new CountOfSubsetSum();
+		System.out.println("getCountSubsetSumUsingRecurssion  "+ testDP.getCountSubsetSumUsingRecurssion(arr, sum, arr.length, new ArrayList()));
 		System.out.println("getCountSubsetSumUsingDP  "+ testDP.getCountSubsetSumUsingDP(arr, sum, arr.length));
+		
+		for(List<Integer> list : testDP.result) {
+			for(Integer val : list) {
+				System.out.print(val + "   ");
+			}
+			System.out.println("");
+		}
 	}
 }

@@ -30,6 +30,6 @@ public class PalindromicPartioning {
 
 
 	public static void main(String[] args) {
-		System.out.println(new PalindromicPartioning().minCut("abcbm"));
+		System.out.println(new PalindromicPartioning().minCut("babad"));
 	}
 }

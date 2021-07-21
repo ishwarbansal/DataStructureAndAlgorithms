@@ -1,6 +1,6 @@
 package com.patterns.tree.deapth.first.search;
 
-import com.patterns.sliding.window.TreeNode;
+import com.patterns.tree.breadth.first.search.TreeNode;
 
 public class MaximumPathSum {
 

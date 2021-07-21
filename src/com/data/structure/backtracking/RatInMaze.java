@@ -3,16 +3,19 @@ package com.data.structure.backtracking;
 import java.util.ArrayList;
 import java.util.List;
 
+/*A Maze is given as N*N binary matrix of blocks where source block is the upper left most block i.e., maze[0][0] 
+		and destination block is lower rightmost block i.e., maze[N-1][N-1]. 
+A rat starts from source and has to reach the destination. The rat can move only in two directions: forward and down. 
+
+In the maze matrix, 0 means the block is a dead end and 1 means the block can be used in the path from source to destination.
+ */
 public class RatInMaze {
 
-	static int[] rowMove =  {0, -1, 0, 1};
-	static int[] colMove =  {-1, 0, 1, 0};
+	static int[] rowMove =  {0, 1};
+	static int[] colMove =  {1, 0};
 
-	public void checkRateInMaze(int[][] dictionary, boolean[][] visited, int row, int col, List<int[]> result) {
-//		System.out.println("row "+ row + " col " +col +" length "+rowMove.length);
-		if(row==rowMove.length-1 && col==colMove.length-1) {
-			System.out.println("reached");
-			printMatrix(visited);
+	public void checkRateInMaze(int[][] maze, int row, int col, List<int[]> result) {
+		if(row==maze.length-1 && col==maze.length-1) {
 			return;
 		}
 
@@ -20,35 +23,28 @@ public class RatInMaze {
 			int newRow = row + rowMove[i];
 			int newCol = col + colMove[i];
 
-			if(newRow >=0 && newCol>=0 && newRow<dictionary.length && newCol<dictionary[newRow].length && !visited[newRow][newCol] && dictionary[newRow][newCol]==1) {
-				visited[newRow][newCol] = true;
-				checkRateInMaze(dictionary, visited, newRow, newCol, result);
-				visited[newRow][newCol] = false;
+			if(newRow >=0 && newCol>=0 && newRow<maze.length && newCol<maze[newRow].length 
+					&& maze[newRow][newCol]==1) {
+				result.add(new int[]{newRow, newCol});
+				int temp = maze[newRow][newCol] ;
+				maze[newRow][newCol] = -1;
+				checkRateInMaze(maze, newRow, newCol, result);
+				maze[newRow][newCol] = temp;
+				result.remove(result.size()-1);
 			}
 		}
 
 
 	}
-	
-	public void printMatrix(boolean[][] visited) {
-		for (int row = 0; row < visited.length; row++)
-        {
-            for (int col = 0; col < visited[row].length; col++)
-            {
-            	if(visited[row][col])
-            		System.out.println(row + "  " + col);
-            }
-        }
-		
-	}
+
 
 	public static void main(String[] args) {
 		RatInMaze ratInMaze = new RatInMaze();
-		int[][] dictionary = {{1,1,0,1},{0,1,1,1},{0,1,0,1},{0,1,1,1}};
-		boolean[][] visited = new boolean[4][4];
-		visited[0][0] = true;
+		int[][] maze = {{1,1,0,1},{0,1,1,1},{0,1,0,1},{0,1,1,1}};
+
 		List<int[]> result = new ArrayList<int[]>();
 		result.add(new int[]{0,0});
-		ratInMaze.checkRateInMaze(dictionary, visited, 0, 0, result);
+		maze[0][0] = -1;
+		ratInMaze.checkRateInMaze(maze, 0, 0, result);
 	}
 }

@@ -15,6 +15,7 @@ public class KLargestNumbers {
 		// go through the remaining numbers of the array, if the number from the array is bigger than the
 		// top (smallest) number of the min-heap, remove the top number from heap and add the number from array
 		for (int i = k; i < nums.length; i++) {
+			System.out.println(minHeap.peek());
 			if (nums[i] > minHeap.peek()) {
 				minHeap.poll();
 				minHeap.add(nums[i]);

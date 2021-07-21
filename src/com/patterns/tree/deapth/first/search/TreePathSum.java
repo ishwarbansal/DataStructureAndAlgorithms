@@ -3,7 +3,7 @@ package com.patterns.tree.deapth.first.search;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.patterns.sliding.window.TreeNode;
+import com.patterns.tree.breadth.first.search.TreeNode;
 
 public class TreePathSum {
 	public List<List<Integer>> pathSum(TreeNode root, int sum) {

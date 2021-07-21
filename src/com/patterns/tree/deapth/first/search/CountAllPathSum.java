@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
 
-import com.patterns.sliding.window.TreeNode;
+import com.patterns.tree.breadth.first.search.TreeNode;
 
 public class CountAllPathSum {
 
